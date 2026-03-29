@@ -16,6 +16,8 @@ CPMAddPackage(
 
 add_executable(lib_tests lib_tests.cpp)
 
+set_property(TARGET lib_tests PROPERTY CXX_STANDARD 17)
+
 target_link_libraries(lib_tests PRIVATE
     Catch2::Catch2WithMain
     ds_modems
@@ -26,5 +28,6 @@ target_include_directories(lib_tests PRIVATE
     ../src
 )
 
+include(CTest)
 add_test(NAME test_lib COMMAND lib_tests)
 

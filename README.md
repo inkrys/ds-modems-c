@@ -10,12 +10,13 @@ The modulator generates a bitstream stored in chunks of 32 bits as this project 
 
 As such, a single iteration of the modulator has a base upsampling rate of 32x and any oversampling ratio must be a multiple of 32.
 
-#### generate_chunk
-| Component | Description |
-|-----------|-------------|
-| Sample    | Sample to be modulated |
-| Accumulator | Stores the accumulation value from calculation to calculation |
-| BitStream | The bitstream generated from an iteration. The MSB is the last value generated |
+#### Components
+| Component     | Description |
+|---------------|-------------|
+| Sample        | Sample to be modulated |
+| OsampRatio    | Oversampling ratio |
+| ModChState    | State of the modulation channel |
+
 
 
 ## Side-note on Clang
@@ -25,6 +26,8 @@ What I tried before that:
 - Setting the clang --gcc-install-dir variable to a clang installation with lstdc++
 
 ## Side-note on CMake and VScode on ubuntu:
+
+This is so that I have it written down somewhere...
 
 From https://askubuntu.com/questions/1353824/bad-cmake-executable-vscode:
 >The cmake version that comes with Snap is more recent on my Ubuntu 20.04.4 LTS:
